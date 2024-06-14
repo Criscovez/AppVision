@@ -30,13 +30,7 @@ struct PrincipalView: View {
                             )
                         }
                     
-                    Text("Heroes 3D")
-                        .tabItem {
-                            Label(
-                                title: { Text("Heroes 3D") },
-                                icon: { Image(systemName: "person.fill")}
-                            )
-                        }
+      
                 }
             }
         }

@@ -16,8 +16,6 @@
 		2421904C2C18F46200CB3AD2 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421904B2C18F46200CB3AD2 /* KeyChain.swift */; };
 		2421904E2C18F4B600CB3AD2 /* NetworkTransformationsHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421904D2C18F4B600CB3AD2 /* NetworkTransformationsHero.swift */; };
 		242190502C18F51000CB3AD2 /* NetworkLocalizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421904F2C18F51000CB3AD2 /* NetworkLocalizations.swift */; };
-		242190542C18F5D500CB3AD2 /* UseCaseLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242190532C18F5D500CB3AD2 /* UseCaseLogin.swift */; };
-		242190562C18F61500CB3AD2 /* NetworkLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242190552C18F61500CB3AD2 /* NetworkLogin.swift */; };
 		242190582C19025C00CB3AD2 /* HerosViewModelx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242190572C19025C00CB3AD2 /* HerosViewModelx.swift */; };
 		2421905A2C1902C700CB3AD2 /* HerosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242190592C1902C700CB3AD2 /* HerosModel.swift */; };
 		2421905C2C19032900CB3AD2 /* BaseNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421905B2C19032900CB3AD2 /* BaseNetwork.swift */; };
@@ -29,9 +27,6 @@
 		243630CA2C1671F0004230D2 /* AppVisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243630C92C1671F0004230D2 /* AppVisionTests.swift */; };
 		243630D52C167DCF004230D2 /* KCNetworkVisionPro in Frameworks */ = {isa = PBXBuildFile; productRef = 243630D42C167DCF004230D2 /* KCNetworkVisionPro */; };
 		243630DC2C167FD0004230D2 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243630DB2C167FD0004230D2 /* Models.swift */; };
-		243630DE2C168094004230D2 /* AppStateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243630DD2C168094004230D2 /* AppStateVM.swift */; };
-		243630E02C1741ED004230D2 /* rootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243630DF2C1741ED004230D2 /* rootView.swift */; };
-		243630E22C174F18004230D2 /* loginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243630E12C174F18004230D2 /* loginView.swift */; };
 		243630E42C175E04004230D2 /* PrincipalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243630E32C175E04004230D2 /* PrincipalView.swift */; };
 		243630E62C179BA5004230D2 /* HerosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243630E52C179BA5004230D2 /* HerosViewModel.swift */; };
 		243630E92C17A13B004230D2 /* HerosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243630E82C17A13B004230D2 /* HerosView.swift */; };
@@ -58,8 +53,6 @@
 		2421904B2C18F46200CB3AD2 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		2421904D2C18F4B600CB3AD2 /* NetworkTransformationsHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTransformationsHero.swift; sourceTree = "<group>"; };
 		2421904F2C18F51000CB3AD2 /* NetworkLocalizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLocalizations.swift; sourceTree = "<group>"; };
-		242190532C18F5D500CB3AD2 /* UseCaseLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseLogin.swift; sourceTree = "<group>"; };
-		242190552C18F61500CB3AD2 /* NetworkLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogin.swift; sourceTree = "<group>"; };
 		242190572C19025C00CB3AD2 /* HerosViewModelx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HerosViewModelx.swift; sourceTree = "<group>"; };
 		242190592C1902C700CB3AD2 /* HerosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HerosModel.swift; sourceTree = "<group>"; };
 		2421905B2C19032900CB3AD2 /* BaseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetwork.swift; sourceTree = "<group>"; };
@@ -72,9 +65,6 @@
 		243630C52C1671F0004230D2 /* AppVisionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppVisionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		243630C92C1671F0004230D2 /* AppVisionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVisionTests.swift; sourceTree = "<group>"; };
 		243630DB2C167FD0004230D2 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		243630DD2C168094004230D2 /* AppStateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateVM.swift; sourceTree = "<group>"; };
-		243630DF2C1741ED004230D2 /* rootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rootView.swift; sourceTree = "<group>"; };
-		243630E12C174F18004230D2 /* loginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginView.swift; sourceTree = "<group>"; };
 		243630E32C175E04004230D2 /* PrincipalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalView.swift; sourceTree = "<group>"; };
 		243630E52C179BA5004230D2 /* HerosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HerosViewModel.swift; sourceTree = "<group>"; };
 		243630E82C17A13B004230D2 /* HerosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HerosView.swift; sourceTree = "<group>"; };
@@ -106,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				2421903A2C18EC7E00CB3AD2 /* UseCaseHeros.swift */,
-				242190532C18F5D500CB3AD2 /* UseCaseLogin.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -136,7 +125,6 @@
 				2421903F2C18EE2C00CB3AD2 /* NetworkHeros.swift */,
 				2421904D2C18F4B600CB3AD2 /* NetworkTransformationsHero.swift */,
 				2421904F2C18F51000CB3AD2 /* NetworkLocalizations.swift */,
-				242190552C18F61500CB3AD2 /* NetworkLogin.swift */,
 				2421905B2C19032900CB3AD2 /* BaseNetwork.swift */,
 			);
 			path = Network;
@@ -239,7 +227,6 @@
 		243630D92C167F8A004230D2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				243630DD2C168094004230D2 /* AppStateVM.swift */,
 				243630E52C179BA5004230D2 /* HerosViewModel.swift */,
 				242190572C19025C00CB3AD2 /* HerosViewModelx.swift */,
 			);
@@ -250,8 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				243630E72C179D75004230D2 /* Heros */,
-				243630DF2C1741ED004230D2 /* rootView.swift */,
-				243630E12C174F18004230D2 /* loginView.swift */,
 				243630E32C175E04004230D2 /* PrincipalView.swift */,
 			);
 			path = Views;
@@ -375,7 +360,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				243630E02C1741ED004230D2 /* rootView.swift in Sources */,
 				242190422C18EE8A00CB3AD2 /* ConstantsLibrary.swift in Sources */,
 				243630E42C175E04004230D2 /* PrincipalView.swift in Sources */,
 				243630B62C1671EE004230D2 /* AppVisionApp.swift in Sources */,
@@ -384,15 +368,11 @@
 				2421904C2C18F46200CB3AD2 /* KeyChain.swift in Sources */,
 				2421903B2C18EC7E00CB3AD2 /* UseCaseHeros.swift in Sources */,
 				242190482C18F3CC00CB3AD2 /* HTTPMethods.swift in Sources */,
-				243630E22C174F18004230D2 /* loginView.swift in Sources */,
 				243630EB2C17A877004230D2 /* HerosRowView.swift in Sources */,
 				243630E62C179BA5004230D2 /* HerosViewModel.swift in Sources */,
 				2421904E2C18F4B600CB3AD2 /* NetworkTransformationsHero.swift in Sources */,
 				2421905C2C19032900CB3AD2 /* BaseNetwork.swift in Sources */,
-				242190562C18F61500CB3AD2 /* NetworkLogin.swift in Sources */,
-				242190542C18F5D500CB3AD2 /* UseCaseLogin.swift in Sources */,
 				242190402C18EE2C00CB3AD2 /* NetworkHeros.swift in Sources */,
-				243630DE2C168094004230D2 /* AppStateVM.swift in Sources */,
 				242190582C19025C00CB3AD2 /* HerosViewModelx.swift in Sources */,
 				2421904A2C18F40D00CB3AD2 /* HTTPResponseCodes.swift in Sources */,
 				242190502C18F51000CB3AD2 /* NetworkLocalizations.swift in Sources */,

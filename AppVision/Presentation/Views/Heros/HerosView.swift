@@ -11,7 +11,7 @@ import Kingfisher
 
 struct HerosView: View {
     
-    @Environment(AppStateVM.self) private var appStateVM
+   
     @StateObject var viewModel: HerosViewModelx
     
     @State private var selectedHero: HeroeResult?
@@ -143,7 +143,7 @@ struct HerosView: View {
                 })
                 
                 Button(action: {
-                    appStateVM.closeSession()
+                    
                     
                 }, label: {
                     Image(systemName: "xmark.circle")

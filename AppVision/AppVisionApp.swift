@@ -10,11 +10,11 @@ import SwiftUI
 @main
 struct AppVisionApp: App {
     
-    @State private var appState = AppStateVM()
+   
     var body: some Scene {
         WindowGroup {
-            rootView()
-                .environment(appState)
+            PrincipalView()
+                
                 .frame(minWidth: 1000, maxWidth: .infinity, minHeight: 800, maxHeight: .infinity)
         }
         .windowStyle(.plain)

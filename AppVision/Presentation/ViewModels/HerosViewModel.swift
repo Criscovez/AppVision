@@ -10,16 +10,13 @@ import Foundation
 final class HerosViewModel: ObservableObject {
     @Published  var heros: [HeroeResult] = []
     @Published  var series: [SerieResult] = []
-
+    
     
     var HerosUseCase: UseCaseHerosProtocol
     
     init(useCaseHeros: UseCaseHerosProtocol = UseCaseHeros()) {
         self.HerosUseCase = useCaseHeros
         
-        Task {
-            await getHeros(firstLetter: "a", filter: "")
-        }
     }
     
     func getHeros(firstLetter: String, filter: String) async {
@@ -30,22 +27,24 @@ final class HerosViewModel: ObservableObject {
             if filter != "" {
                 let herosf = data.filter { hero in
                     if hero.name.contains(filter) {
-
+                        
                         return true
                         
                     } else {
-
+                        
                         return false
                         
                     }
                 }
                 self.heros = herosf
             } else {
-                //heros = modelReturn.data.results
+                
                 self.heros = data
             }
         }
     }
+    
+    
     
     func getSeries(HeroID: String) async {
         let data = await HerosUseCase.getSeriesData(HeroID: HeroID)
@@ -53,5 +52,36 @@ final class HerosViewModel: ObservableObject {
         DispatchQueue.main.async {
             self.series = data
         }
+    }
+    
+    
+    func getHerosMock(firstLetter: String, filter: String) async {
+        let data = await HerosUseCase.getHerosData(firstLetter: firstLetter, filter: filter)
+        
+        if filter != "" {
+            let herosf = data.filter { hero in
+                if hero.name.contains(filter) {
+                    
+                    return true
+                    
+                } else {
+                    
+                    return false
+                    
+                }
+            }
+            self.heros = herosf
+        } else {
+            //heros = modelReturn.data.results
+            self.heros = data
+        }
+    }
+    
+    
+    
+    func getSeriesMock(HeroID: String) async {
+        let data = await HerosUseCase.getSeriesData(HeroID: HeroID)
+        
+        self.series = data
     }
 }

@@ -25,10 +25,7 @@ struct BaseNetwork{
             URLQueryItem(name: "ts", value: "1"),
             URLQueryItem(name: "hash", value: "09a08b86af7b3f5c25391bbf70249b8e"),
             URLQueryItem(name: "orderBy", value: "name"),
-            URLQueryItem(name: "limit", value: "100")
-    
-            
-            
+            URLQueryItem(name: "limit", value: "100")  
         ]
       
         print(components.string as Any)

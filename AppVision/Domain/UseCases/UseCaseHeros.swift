@@ -28,7 +28,7 @@ public final class UseCaseHeros: UseCaseHerosProtocol{
     public func getHerosData(firstLetter: String, filter: String = "") async -> [HeroeResult] {
         var herosFinal = [HeroeResult]()
         
-        //get The Heros
+        //get Heros
         let heros = await NetWorkHeros.getHeros(firstLetter: firstLetter)
         
         herosFinal = (heros?.data.results)!
@@ -40,7 +40,7 @@ public final class UseCaseHeros: UseCaseHerosProtocol{
     public func getSeriesData(HeroID: String) async -> [SerieResult] {
         var seriesFinal = [SerieResult]()
         
-        //get The Heros
+        //get Series
         let series = await NetWorkSeries.getSeries(HeroID: HeroID)
         
         seriesFinal = (series?.data.results)!
@@ -62,7 +62,7 @@ public final class UseCaseHerosFake: UseCaseHerosProtocol{
     public func getHerosData(firstLetter: String, filter: String) async -> [HeroeResult] {
         var herosFinal = [HeroeResult]()
         
-        //get The Heros
+        //get Heros
         let heros = await NetWorkHeros.getHeros(firstLetter: firstLetter)
         
         herosFinal = (heros?.data.results)!
@@ -74,7 +74,7 @@ public final class UseCaseHerosFake: UseCaseHerosProtocol{
     public func getSeriesData(HeroID: String) async -> [SerieResult] {
         var seriesFinal = [SerieResult]()
         
-        //get The Heros
+        //get Series
         let series = await NetWorkSeries.getSeries(HeroID: HeroID)
         
         seriesFinal = (series?.data.results)!

@@ -11,6 +11,7 @@ import SwiftUI
 import ViewInspector
 import UIKit
 
+
 class AppVisionTests: XCTestCase {
     
     func testBaseNetwork() {
@@ -31,38 +32,59 @@ class AppVisionTests: XCTestCase {
     
     func testHerosViewModel() async {
         
-        let hvm = HerosViewModel(useCaseHeros: UseCaseHeros())
+        let hvm = HerosViewModel(useCaseHeros: UseCaseHerosFake())
         
         XCTAssertNotNil(hvm)
         
        
-        //  await  hvm.getHeros()
+        await  hvm.getHerosMock(firstLetter: "a", filter: "a")
         
-        XCTAssertEqual(hvm.heros.count, 3)
+        XCTAssertEqual(hvm.heros.count, 1)
         
+        await  hvm.getSeriesMock(HeroID: "1")
+        
+        XCTAssertEqual(hvm.heros.count, 1)
+ 
     }
+    
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func testNetworkHeros() async throws {
+        let obj1 = NetworkHeros()
+        XCTAssertNotNil(obj1)
+        let obj2 = NetworkHerosFake()
+        XCTAssertNotNil(obj2)
+        
+        let heroFake = await obj2.getHeros(firstLetter: "a")
+        XCTAssertNotEqual(heroFake?.data.results.count, 0)
+        
+        let hero = await obj1.getHeros(firstLetter: "a")
+        XCTAssertEqual(hero?.data.results.count, 84)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testNetworkSeries() async throws {
+        let obj1 = NetworkSeries()
+        XCTAssertNotNil(obj1)
+        let obj2 = NetworkSeriesFake()
+        XCTAssertNotNil(obj2)
+        
+        let heroFake = await obj2.getSeries(HeroID: "1")
+        XCTAssertNotEqual(heroFake?.data.results.count, 0)
+        
+        let hero = await obj1.getSeries(HeroID: "1017100")
+        XCTAssertEqual(hero?.data.results.count, 2)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testUseCaseHeros() async throws {
+        let usecase = UseCaseHerosFake()
+        XCTAssertNotNil(usecase)
+        
+        let data = await usecase.getHerosData(firstLetter: "a", filter: "a")
+        XCTAssertNotNil(data)
+        XCTAssertEqual(data.count,3)
+        
+        let data2 = await usecase.getSeriesData(HeroID: "1")
+        XCTAssertNotNil(data2)
+        XCTAssertEqual(data2.count,2)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+    
 }

@@ -94,16 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				2421903E2C18EDDD00CB3AD2 /* Network */,
-				2421903D2C18EDC900CB3AD2 /* Local */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		2421903D2C18EDC900CB3AD2 /* Local */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Local;
 			sourceTree = "<group>";
 		};
 		2421903E2C18EDDD00CB3AD2 /* Network */ = {

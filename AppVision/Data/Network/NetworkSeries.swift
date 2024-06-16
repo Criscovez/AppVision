@@ -18,17 +18,8 @@ final class NetworkSeries: NetworkSeriesProtocol{
     
     public init(){}
     
-    //    func getHeros(filter: String) async -> [HerosModelResponse] {
-    //
-    //    }
-    
     func getSeries(HeroID: String) async -> SeriesResponse? {
         
-        //mockeado
-        //        if self.mocked{
-        //            getSeriesMock()
-        //            return
-        //        }
         print(HeroID)
         do {
             let (data, response) = try await URLSession.shared.data(for: BaseNetwork().getSessionSeries(HeroID: HeroID))

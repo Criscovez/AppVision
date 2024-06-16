@@ -17,6 +17,6 @@ struct PrincipalView: View {
     }
 }
 
-//#Preview {
-// //   PrincipalView(vm: HerosViewModelx(useCaseHeros: UseCaseHerosFake()))
-//}
+#Preview {
+   PrincipalView(vm: HerosViewModel(useCaseHeros: UseCaseHerosFake()))
+}

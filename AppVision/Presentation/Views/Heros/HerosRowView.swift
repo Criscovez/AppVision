@@ -39,6 +39,6 @@ struct HerosRowView: View {
     }
 }
 
-//#Preview {
-//  //  HerosRowView(hero: HerosData.getHeroMock())
-//}
+#Preview {
+    HerosRowView(hero: HeroeResult(id: 1, name: "Hit-Monkey", resultDescription: "", modified: "", thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/6/30/4ce69c2246c21", thumbnailExtension: "jpg")))
+}

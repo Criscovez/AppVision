@@ -10,13 +10,10 @@ import Foundation
 
 public struct HeroesResponse: Decodable {
     let code: Int
-    let status, copyright, attributionText, attributionHTML: String
-    let etag: String
     let data: HeroesData
 }
 
 public struct HeroesData: Decodable {
-    let offset, limit, total, count: Int
     let results: [HeroeResult]
 }
 
@@ -26,16 +23,12 @@ public struct HeroeResult: Identifiable, Decodable, Hashable {
     let name, resultDescription: String
     let modified: String
     let thumbnail: Thumbnail
-    let resourceURI: String
-    let comics, series: Comics
-    let stories: Stories
-    let events: Comics
-    let urls: [URLElement]
+
     
     enum CodingKeys: String, CodingKey {
         case id, name
         case resultDescription = "description"
-        case modified, thumbnail, resourceURI, comics, series, stories, events, urls
+        case modified, thumbnail
     }
     
     public static func ==(lhs: HeroeResult, rhs: HeroeResult) -> Bool {

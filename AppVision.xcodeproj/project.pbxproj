@@ -16,6 +16,7 @@
 		242190612C1D406E00CB3AD2 /* UseCaseHeros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242190602C1D406E00CB3AD2 /* UseCaseHeros.swift */; };
 		242190632C1D49B700CB3AD2 /* NetworkHeros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242190622C1D49B700CB3AD2 /* NetworkHeros.swift */; };
 		242190652C1E4C4100CB3AD2 /* NetworkSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242190642C1E4C4100CB3AD2 /* NetworkSeries.swift */; };
+		242190682C1EABE500CB3AD2 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 242190672C1EABE500CB3AD2 /* ViewInspector */; };
 		243630B42C1671EE004230D2 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 243630B32C1671EE004230D2 /* RealityKitContent */; };
 		243630B62C1671EE004230D2 /* AppVisionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243630B52C1671EE004230D2 /* AppVisionApp.swift */; };
 		243630BC2C1671F0004230D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 243630BB2C1671F0004230D2 /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				242190682C1EABE500CB3AD2 /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +274,9 @@
 				243630C72C1671F0004230D2 /* PBXTargetDependency */,
 			);
 			name = AppVisionTests;
+			packageProductDependencies = (
+				242190672C1EABE500CB3AD2 /* ViewInspector */,
+			);
 			productName = AppVisionTests;
 			productReference = 243630C52C1671F0004230D2 /* AppVisionTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -306,6 +311,7 @@
 			mainGroup = 243630A52C1671EE004230D2;
 			packageReferences = (
 				2421905D2C19449300CB3AD2 /* XCRemoteSwiftPackageReference "kingfisher" */,
+				242190662C1EABE500CB3AD2 /* XCRemoteSwiftPackageReference "ViewInspector" */,
 			);
 			productRefGroup = 243630AF2C1671EE004230D2 /* Products */;
 			projectDirPath = "";
@@ -630,6 +636,14 @@
 				minimumVersion = 7.12.0;
 			};
 		};
+		242190662C1EABE500CB3AD2 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.11;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -637,6 +651,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2421905D2C19449300CB3AD2 /* XCRemoteSwiftPackageReference "kingfisher" */;
 			productName = Kingfisher;
+		};
+		242190672C1EABE500CB3AD2 /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 242190662C1EABE500CB3AD2 /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
 		};
 		243630B32C1671EE004230D2 /* RealityKitContent */ = {
 			isa = XCSwiftPackageProductDependency;

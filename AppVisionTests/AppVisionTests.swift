@@ -7,8 +7,40 @@
 
 import XCTest
 @testable import AppVision
+import SwiftUI
+import ViewInspector
+import UIKit
 
 class AppVisionTests: XCTestCase {
+    
+    func testBaseNetwork() {
+        let sessionHeros = BaseNetwork().getSessionHeros().url
+        XCTAssertEqual(sessionHeros, URL(string: "https://gateway.marvel.com/v1/public/characters?apikey=4c64c5a2e16fb54ba9b851005b3d85fb&ts=1&hash=09a08b86af7b3f5c25391bbf70249b8e&orderBy=name&limit=100"))
+        
+        XCTAssertEqual(BaseNetwork().getSessionHeros().httpMethod, HTTPMethods.get)
+        
+        XCTAssertNoThrow(BaseNetwork().getSessionHeros())
+        
+        let sessionSeries = BaseNetwork().getSessionSeries(HeroID: "12345").url
+        XCTAssertEqual(sessionSeries, URL(string: "https://gateway.marvel.com/v1/public/characters/12345/series?apikey=4c64c5a2e16fb54ba9b851005b3d85fb&ts=1&hash=09a08b86af7b3f5c25391bbf70249b8e&orderBy=startYear"))
+        
+        XCTAssertEqual(BaseNetwork().getSessionSeries(HeroID: "12345").httpMethod, HTTPMethods.get)
+        
+        XCTAssertNoThrow(BaseNetwork().getSessionSeries(HeroID: "12345"))
+    }
+    
+    func testHerosViewModel() async {
+        
+        let hvm = HerosViewModel(useCaseHeros: UseCaseHeros())
+        
+        XCTAssertNotNil(hvm)
+        
+       
+        //  await  hvm.getHeros()
+        
+        XCTAssertEqual(hvm.heros.count, 3)
+        
+    }
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

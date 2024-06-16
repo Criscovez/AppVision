@@ -91,7 +91,7 @@ struct HerosView: View {
         } detail: {
             NavigationStack{
                 
-                if let hero = selectedHero {
+                if let _ = selectedHero {
                     List {
                         ForEach(viewModel.series) {
                             trans in
@@ -145,8 +145,8 @@ struct HerosView: View {
     }
 }
 
-//#Preview {
-//    HerosView(viewModel: HerosViewModel(useCaseHeros: UseCaseHerosFake()))
-//        .environment(AppStateVM())
-//}
+#Preview {
+    HerosView(viewModel: HerosViewModel(useCaseHeros: UseCaseHerosFake()))
+       
+}
 

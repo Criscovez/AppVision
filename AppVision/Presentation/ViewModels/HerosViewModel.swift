@@ -6,8 +6,6 @@
 //
 
 import Foundation
-//import KCNetworkVisionPro
-
 
 final class HerosViewModel: ObservableObject {
     @Published  var heros: [HeroeResult] = []
@@ -32,11 +30,11 @@ final class HerosViewModel: ObservableObject {
             if filter != "" {
                 let herosf = data.filter { hero in
                     if hero.name.contains(filter) {
-                        // 1
+
                         return true
                         
                     } else {
-                        // 2
+
                         return false
                         
                     }

@@ -12,7 +12,8 @@ import Kingfisher
 struct HerosView: View {
     
    
-    @StateObject var viewModel: HerosViewModelx
+    @StateObject var viewModel: HerosViewModel
+
     
     @State private var selectedHero: HeroeResult?
     
@@ -28,16 +29,17 @@ struct HerosView: View {
 
 
         NavigationSplitView {
-
-            Text("Letter: \(letter)")
-            Picker("", selection: $letter) {
-                ForEach(alphabet, id: \.self) {
-                    Text("\($0)")
+           HStack {
+                Text("Letter:")
+                Picker("", selection: $letter) {
+                    ForEach(alphabet, id: \.self) {
+                        Text("\($0)")
+                    }
                 }
-            }
-            .onChange(of: letter) { oldValue, newValue in
-                Task {
-                    await   self.viewModel.getHeros(firstLetter: letter)
+                .onChange(of: letter) { oldValue, newValue in
+                    Task {
+                        await   self.viewModel.getHeros(firstLetter: letter, filter: "")
+                    }
                 }
             }
 
@@ -72,6 +74,13 @@ struct HerosView: View {
                         Task {
                             
                             await   viewModel.getSeries(HeroID:String( selectedHero?.id ?? 0))
+                        }
+                    }
+                    .onAppear{
+                        //self.viewModel.getHeros(filter: "")
+                        Task {
+                            await   viewModel.getSeries(HeroID:String( selectedHero?.id ?? 0))
+                            
                         }
                     }
                 } else {
@@ -113,7 +122,7 @@ struct HerosView: View {
                       }
                     }
                 } else {
-                    ContentUnavailableView("Sin Datos", systemImage: "cube.transparent")
+                    ContentUnavailableView("Sin Series", systemImage: "book.fill")
                 }
                 
             }
@@ -122,42 +131,14 @@ struct HerosView: View {
         .onAppear{
             //self.viewModel.getHeros(filter: "")
             Task {
-             await   self.viewModel.getHeros(firstLetter: letter)
+                await   self.viewModel.getHeros(firstLetter: letter, filter: "")
                 
             }
         }
-        .ornament(attachmentAnchor: .scene(.bottom)) {
-            //contenido del Ornament
-            HStack {
-                Button(action: {
-                    if let hero = selectedHero {
-                       // appStateVM.setHero(hero: hero)
-                        
-                        //Todo: llamar a la ventana de localizaciones
-                    }
-                    
-                }, label: {
-                    Image(systemName: "map")
-                        .resizable()
-                        .frame(width: 45, height: 45)
-                })
-                
-                Button(action: {
-                    
-                    
-                }, label: {
-                    Image(systemName: "xmark.circle")
-                        .resizable()
-                        .frame(width: 45, height: 45)
-                })
 
-            }
-            .frame(width: 400, height: 80)
-            .glassBackgroundEffect(in: .rect(cornerRadius: 40))
-        }
         .onChange(of: searchText) {
             Task {
-   //             await viewModel.getHeros(filter: searchText)
+                await viewModel.getHeros(firstLetter: letter, filter: searchText)
             }
         }
 

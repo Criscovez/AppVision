@@ -7,9 +7,8 @@
 
 import Foundation
 
-enum EndPoints: String{
-    case login = "/auth/login"
-    case heros = "/heros/all"
-    case tranformations = "/heros/tranformations"
-    case locations = "/heros/locations"
+enum endpoints: String {
+    case heros = "/v1/public/characters"
+    case series = "/series"
+
 }

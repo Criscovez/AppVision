@@ -10,26 +10,6 @@ import Foundation
 
 let host = "gateway.marvel.com"
 
-struct HTTPMethods {
-    static let post = "POST"
-    static let get = "GET"
-    static let content = "application/json"
-}
-
-enum endpoints: String {
-    case heros = "/v1/public/characters"
-    case series = "/series"
-
-}
-
-//Server Response Codes
-struct HTTPRresponseCodes {
-    static let SUCESS = 200
-    static let NOT_AUTHORIZED = 401
-    static let ERROR = 502
-}
-
-
 struct BaseNetwork{
     
     var components = URLComponents()
@@ -80,6 +60,7 @@ struct BaseNetwork{
         
         //post
         request.httpMethod = HTTPMethods.get
+        
 
         return request
     }

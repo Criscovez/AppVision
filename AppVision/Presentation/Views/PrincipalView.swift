@@ -6,34 +6,14 @@
 //
 
 import SwiftUI
-//import KCNetworkVisionPro
+
 
 struct PrincipalView: View {
-    @StateObject var vm: HerosViewModelx = HerosViewModelx()
     
-//    init(vm: HerosViewModelx = HerosViewModelx()) {
-//        self.vm = vm
-//    }
+    @StateObject var vm: HerosViewModel = HerosViewModel()
     
     var body: some View {
-        ZStack{
-            ///
-            VStack {
-                TabView {
                     HerosView(viewModel: vm)
-                    Text("Heroes")
-                        .tabItem {
-                            Label(
-                                title: { Text("Heroes") },
-                                icon: { Image(systemName: "42.circle") }
-                                
-                            )
-                        }
-                    
-      
-                }
-            }
-        }
     }
 }
 

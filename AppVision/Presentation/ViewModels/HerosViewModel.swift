@@ -8,11 +8,11 @@
 import Foundation
 //import KCNetworkVisionPro
 
-@Observable
-final class HerosViewModel {
-    var heros: [HerosData]?
-    var heros3D: [HerosData]?
-    var status = Status.none
+
+final class HerosViewModel: ObservableObject {
+    @Published  var heros: [HeroeResult] = []
+    @Published  var series: [SerieResult] = []
+
     
     var HerosUseCase: UseCaseHerosProtocol
     
@@ -20,18 +20,40 @@ final class HerosViewModel {
         self.HerosUseCase = useCaseHeros
         
         Task {
-            await getHeros(filter: "")
+            await getHeros(firstLetter: "a", filter: "")
         }
     }
     
-    func getHeros(filter: String) async {
-        let data = await HerosUseCase.getData(filter: filter)
+    func getHeros(firstLetter: String, filter: String) async {
+        let data = await HerosUseCase.getHerosData(firstLetter: firstLetter, filter: filter)
         
         DispatchQueue.main.async {
-            self.heros = data
-            if let heros = self.heros {
-                self.heros3D = heros.filter { $0.id3DModel != "" }
+            //self.heros = data
+            if filter != "" {
+                let herosf = data.filter { hero in
+                    if hero.name.contains(filter) {
+                        // 1
+                        return true
+                        
+                    } else {
+                        // 2
+                        return false
+                        
+                    }
+                }
+                self.heros = herosf
+            } else {
+                //heros = modelReturn.data.results
+                self.heros = data
             }
+        }
+    }
+    
+    func getSeries(HeroID: String) async {
+        let data = await HerosUseCase.getSeriesData(HeroID: HeroID)
+        
+        DispatchQueue.main.async {
+            self.series = data
         }
     }
 }

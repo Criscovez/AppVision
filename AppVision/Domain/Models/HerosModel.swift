@@ -8,29 +8,21 @@
 import Foundation
 
 
-struct HeroesResponse: Decodable {
+public struct HeroesResponse: Decodable {
     let code: Int
     let status, copyright, attributionText, attributionHTML: String
     let etag: String
     let data: HeroesData
 }
 
-struct HeroesData: Decodable {
+public struct HeroesData: Decodable {
     let offset, limit, total, count: Int
     let results: [HeroeResult]
 }
 
-struct HeroeResult: Identifiable, Decodable, Hashable {
-
+public struct HeroeResult: Identifiable, Decodable, Hashable {
     
-//    // Implementing Hashable protocol
-//    public func hash(into hasher: inout Hasher) {
-//        hasher.combine(id)
-//    }
-    
-
-    
-    let id: Int
+    public  let id: Int
     let name, resultDescription: String
     let modified: String
     let thumbnail: Thumbnail
@@ -46,32 +38,32 @@ struct HeroeResult: Identifiable, Decodable, Hashable {
         case modified, thumbnail, resourceURI, comics, series, stories, events, urls
     }
     
-    static func ==(lhs: HeroeResult, rhs: HeroeResult) -> Bool {
+    public static func ==(lhs: HeroeResult, rhs: HeroeResult) -> Bool {
         return lhs.id == rhs.id
     }
     
-
+    
     public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
     
-
+    
 }
 
-struct Comics: Decodable {
+public struct Comics: Decodable {
     let available: Int
     let collectionURI: String
     let items: [ComicsItem]
     let returned: Int
 }
 
-struct ComicsItem: Identifiable, Decodable {
-    let id = UUID()
+public struct ComicsItem: Identifiable, Decodable {
+    public let id = UUID()
     let resourceURI: String
     let name: String
 }
 
-struct Stories: Decodable {
+public struct Stories: Decodable {
     let available: Int
     let collectionURI: String
     let items: [StoriesItem]
@@ -85,7 +77,7 @@ struct StoriesItem: Identifiable, Decodable {
     let type: String
 }
 
-struct Thumbnail: Decodable {
+public struct Thumbnail: Codable {
     let path: String
     let thumbnailExtension: String
     
@@ -99,61 +91,51 @@ struct Thumbnail: Decodable {
     }
 }
 
-struct URLElement: Identifiable, Decodable {
-    let id = UUID()
+public struct URLElement: Identifiable, Codable {
+    public let id = UUID()
     let type: String
     let url: String
 }
 
-struct SeriesResponse: Decodable {
+public struct SeriesResponse: Decodable {
     let code: Int
     let status, copyright, attributionText, attributionHTML: String
     let etag: String
     let data: SeriesData
 }
 
-struct SeriesData: Decodable {
+public struct SeriesData: Decodable {
     let offset, limit, total, count: Int
     let results: [SerieResult]
 }
 
-struct SerieResult: Identifiable, Decodable  {
-    let id: Int
+public struct SerieResult: Identifiable, Codable  {
+    public let id: Int
     let title: String
     let description: String?
-    let resourceURI: String
-    let urls: [URLElement]
-    let startYear, endYear: Int
-    let rating, type, modified: String
     let thumbnail: Thumbnail
-    let creators: Creators
-    let characters: Characters
-    let stories: Stories
-    let comics, events: Characters
-    //let next, previous: nil
-  
 }
 
-struct Characters: Codable {
+public struct Characters: Codable {
     let available: Int
     let collectionURI: String
     let items: [CharactersItem]
     let returned: Int
 }
 
-struct CharactersItem: Codable {
+public struct CharactersItem: Codable {
     let resourceURI: String
     let name: String
 }
 
-struct Creators: Codable {
+public struct Creators: Codable {
     let available: Int
     let collectionURI: String
     let items: [CreatorsItem]
     let returned: Int
 }
 
-struct CreatorsItem: Codable {
+public struct CreatorsItem: Codable {
     let resourceURI: String
     let name, role: String
 }
@@ -161,4 +143,35 @@ struct CreatorsItem: Codable {
 enum TypeEnum: String, Codable {
     case cover = "cover"
     case interiorStory = "interiorStory"
+}
+
+
+public struct HeroeData: Codable, Identifiable , Hashable {
+    
+    public let id: Int
+    public let description: String
+    public let image: String
+    public let name: String
+    public let series: [SerieResult]
+
+    
+    
+    public init(id: Int, description: String, image: String, name: String, series: [SerieResult]) {
+        
+        self.id = id
+        self.description = description
+        self.image = image
+        self.name = name
+        self.series = series
+
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+    public static func ==(lhs: HeroeData, rhs: HeroeData) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
 }

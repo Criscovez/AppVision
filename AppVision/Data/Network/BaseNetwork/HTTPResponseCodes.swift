@@ -13,3 +13,5 @@ struct HTTPResponseCodes{
     static let NOT_AUTHORIZED = 401
     static let ERROR = 502
 }
+
+
